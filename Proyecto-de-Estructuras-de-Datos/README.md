@@ -1,5 +1,5 @@
- Courier Quest
- Un juego donde controlas a un repartidor que tiene que entregar paquetes.
+ Courier Quest 2
+ Un juego donde controlas a un repartidor que tiene que entregar paquetes y compite contra una IA para ver quien entrega más paquetes, ¿Seras capaz de alcazar la meta?.
 
  Controles:
  Flechas para controlar al personajes.
@@ -15,3 +15,4 @@
 
  Por ultimo, en caso de que el requests de error, instale el request con 
  "pip install requests" en el cmd a la version de python este usando.
+
