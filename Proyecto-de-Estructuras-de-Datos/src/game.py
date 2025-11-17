@@ -177,20 +177,6 @@ class Game:
                                  True, (200, 200, 255))
         self.screen.blit(clima_text, (500, hud_y + 70))
 
-        #bar_x = 500
-        #bar_y = hud_y + 85
-        #bar_width = 150
-        #bar_height = 15
-        #ratio = self.cpu.resistencia / 100
-
-        #pygame.draw.rect(self.screen, (100, 100, 100), (bar_x, bar_y, bar_width, bar_height))
-        #pygame.draw.rect(self.screen, (0, 200, 0), (bar_x, bar_y, bar_width * ratio, bar_height))
-
-        #font_small = pygame.font.SysFont(None, 20)
-        #text = font_small.render(f"CPU Resistencia: {int(self.cpu.resistencia)}", True, (255, 255, 255))
-        #self.screen.blit(text, (bar_x, bar_y - 20))
-
-
     def update(self, dt):
         """Actualiza la lógica del juego."""
         if self.time >= DURATION:
@@ -325,4 +311,5 @@ class Game:
         scores = sorted(scores, key=lambda x: x["score"], reverse=True)
 
         with open(file_path, "w", encoding="utf-8") as f:
+
             json.dump(scores, f, ensure_ascii=False, indent=4)
