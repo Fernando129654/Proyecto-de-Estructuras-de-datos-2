@@ -1,0 +1,6 @@
+Prompts de IA usados en este proyecto:
+chatgpt, que es Expectimax
+me explicas como funciona Expectimax
+ya, como lo implemtento expetimax en mi proyecto.
+Me explicas que es A*
+Okay, como hago para implementarlo.
