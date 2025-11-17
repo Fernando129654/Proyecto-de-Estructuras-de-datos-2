@@ -10,6 +10,9 @@ from player import Player
 from order import OrderManager
 from weather import Weather
 from datetime import datetime, timedelta
+from CPUPlayer import CPUPlayer
+from CPUPlayer_medium import CPUPlayer_Medium
+from CPUPlayer_dificil import CPUPlayer_Dificil
 import json
 import os
 TILE_SIZE = 40
@@ -49,6 +52,7 @@ class Game:
 
         self.score = 0
 
+        self.cpu = CPUPlayer(start_x=1, start_y=1)
 
 
 
@@ -125,6 +129,7 @@ class Game:
 
             self.draw_hud()
 
+        self.cpu.draw(self.screen)
         pygame.display.flip()
 
     def draw_hud(self):
@@ -172,6 +177,19 @@ class Game:
                                  True, (200, 200, 255))
         self.screen.blit(clima_text, (500, hud_y + 70))
 
+        #bar_x = 500
+        #bar_y = hud_y + 85
+        #bar_width = 150
+        #bar_height = 15
+        #ratio = self.cpu.resistencia / 100
+
+        #pygame.draw.rect(self.screen, (100, 100, 100), (bar_x, bar_y, bar_width, bar_height))
+        #pygame.draw.rect(self.screen, (0, 200, 0), (bar_x, bar_y, bar_width * ratio, bar_height))
+
+        #font_small = pygame.font.SysFont(None, 20)
+        #text = font_small.render(f"CPU Resistencia: {int(self.cpu.resistencia)}", True, (255, 255, 255))
+        #self.screen.blit(text, (bar_x, bar_y - 20))
+
 
     def update(self, dt):
         """Actualiza la lógica del juego."""
@@ -207,6 +225,7 @@ class Game:
                 if self.player.reputacion < 0:
                     self.player.reputacion = 0
 
+        self.cpu.update(dt,self.city, self.orders, self.weather.get_current_condition())
 
     def trigger_fin(self, reason, victory=False):
         """Detiene el juego y muestra la pantalla de Game Over o Victoria."""
